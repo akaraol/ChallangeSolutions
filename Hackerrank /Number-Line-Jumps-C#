@@ -1,0 +1,96 @@
+You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a number line ready to jump in the positive direction (i.e, toward positive infinity).
+
+The first kangaroo starts at location  and moves at a rate of  meters per jump.
+The second kangaroo starts at location  and moves at a rate of  meters per jump.
+You have to figure out a way to get both kangaroos at the same location at the same time as part of the show. If it is possible, return YES, otherwise return NO.
+
+Example
+
+
+
+
+After one jump, they are both at , (, ), so the answer is YES.
+
+Function Description
+
+Complete the function kangaroo in the editor below.
+
+kangaroo has the following parameter(s):
+
+int x1, int v1: starting position and jump distance for kangaroo 1
+int x2, int v2: starting position and jump distance for kangaroo 2
+Returns
+
+string: either YES or NO
+Input Format
+
+A single line of four space-separated integers denoting the respective values of , , , and .
+
+Constraints
+
+Sample Input 0
+
+0 3 4 2
+Sample Output 0
+
+YES
+
+
+
+
+
+
+
+----------------------------------------------SOLUTION----------------------------------------------
+
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'kangaroo' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER x1
+     *  2. INTEGER v1
+     *  3. INTEGER x2
+     *  4. INTEGER v2
+     */
+
+    public static string kangaroo(int x1, int v1, int x2, int v2)
+{
+    // Calculate the position of each kangaroo after each jump
+    int firstKangarooPosition = x1;
+    int secondKangarooPosition = x2;
+
+    for (int i = 0; i < 10000; i++) // Assuming at most 10000 jumps
+    {
+        firstKangarooPosition += v1;
+        secondKangarooPosition += v2;
+
+        // Check if the kangaroos are at the same position
+        if (firstKangarooPosition == secondKangarooPosition)
+        {
+            return "YES";
+        }
+    }
+
+    // If the kangaroos never meet after the maximum number of jumps, return "NO"
+    return "NO";
+}
+
+}
