@@ -1,0 +1,45 @@
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    // Complete the catAndMouse function below.
+    static string catAndMouse(int x, int y, int z) 
+    {
+        int catA = x;
+        int catB = y;
+        int mouse = z;
+        
+        int catADiff = (mouse - catA);
+        int catBDiff = (mouse - catB);
+        
+        int catADiffAbs = Math.Abs(catADiff);
+        int catBDiffAbs = Math.Abs(catBDiff);
+        
+        if(catADiffAbs == catBDiffAbs)
+        {
+            return "Mouse C";
+        }
+        if(catADiffAbs > catBDiffAbs)
+        {
+            return "Cat B";
+        }
+        if
+        (catADiffAbs < catBDiffAbs)
+        {
+            return "Cat A";
+        }
+        return "";
+
+    }
