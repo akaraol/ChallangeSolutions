@@ -1,0 +1,95 @@
+Given an array of bird sightings where every element represents a bird type id, determine the id of the most frequently sighted type. If more than 1 type has been spotted that maximum amount, return the smallest of their ids.
+
+Example
+
+There are two each of types  and , and one sighting of type . Pick the lower of the two types seen twice: type .
+
+Function Description
+
+Complete the migratoryBirds function in the editor below.
+
+migratoryBirds has the following parameter(s):
+
+int arr[n]: the types of birds sighted
+Returns
+
+int: the lowest type id of the most frequently sighted birds
+Input Format
+
+The first line contains an integer, , the size of .
+The second line describes  as  space-separated integers, each a type number of the bird sighted.
+
+Constraints
+
+It is guaranteed that each type is , , , , or .
+Sample Input 0
+
+6
+1 4 4 4 5 3
+Sample Output 0
+
+4
+
+---------------------------------------------SOLUTION----------------------------------------------------------
+
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'migratoryBirds' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int migratoryBirds(List<int> arr)
+    {
+          // Create a dictionary to store the frequency of each number.
+        Dictionary<int, int> frequencyDict = new Dictionary<int, int>();
+
+        // Iterate through the list and update the dictionary.
+        foreach (var number in arr)
+        {
+            if (frequencyDict.ContainsKey(number))
+            {
+                frequencyDict[number]++;
+            }
+            else
+            {
+                frequencyDict[number] = 1;
+            }
+        }
+
+        // Find the maximum frequency.
+        int maxFrequency = frequencyDict.Values.Max();
+
+        // Collect all numbers that have the maximum frequency.
+        var mostFrequentNumbers = frequencyDict
+                                    .Where(x => x.Value == maxFrequency)
+                                    .Select(x => x.Key)
+                                    .ToList();
+
+        // Find the smallest number among the most frequent numbers.
+        int minNumber = mostFrequentNumbers.Min();
+        
+        return minNumber;
+                                    
+        
+
+    }
+
+}
