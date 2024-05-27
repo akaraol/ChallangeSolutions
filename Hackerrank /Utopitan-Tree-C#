@@ -1,0 +1,75 @@
+The Utopian Tree goes through 2 cycles of growth every year. Each spring, it doubles in height. Each summer, its height increases by 1 meter.
+
+A Utopian Tree sapling with a height of 1 meter is planted at the onset of spring. How tall will the tree be after  growth cycles?
+
+For example, if the number of growth cycles is , the calculations are as follows:
+
+Period  Height
+0          1
+1          2
+2          3
+3          6
+4          7
+5          14
+Function Description
+
+Complete the utopianTree function in the editor below.
+
+utopianTree has the following parameter(s):
+
+int n: the number of growth cycles to simulate
+Returns
+
+int: the height of the tree after the given number of cycles
+
+------------------------------------------SOLUTION--------------------------------------------------------
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Result
+{
+
+    /*
+     * Complete the 'utopianTree' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER n as parameter.
+     */
+
+    public static int utopianTree(int n)
+    {
+        
+       bool spring = true;
+        int height = 1;
+        
+    for (int i = 0; i < n; i++)
+    {
+        if (spring)
+        {
+            height *= 2;
+            spring = false;
+        }
+        else 
+        {
+            height += 1;
+            spring = true;
+        }
+    }
+    
+    return height;
+        
+
+    }
+
+}
